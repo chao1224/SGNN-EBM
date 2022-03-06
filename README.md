@@ -16,7 +16,7 @@ This repository provides the source code for the AISTATS'22 paper **Structured M
 3. We propose **state graph neural network-energy based model (SGNN-EBM)** for task structured modeling in both the latent and output space.
 
 <p align="center">
-  <img src="fig/pipeline.png" /> 
+  <image src="fig/pipeline.png" height="60px"/> 
 </p>
 
 
@@ -62,7 +62,7 @@ In this work, we propose a novel dataset with explicit task relation.
 Basically it is a molecule property task dataset, where the *task* refers to a binary classification problem on a ChEMBL assay. Each task measures certain biological effects of molecules, *e.g.*, toxicity, inhibition or activation of proteins or whole cellular processes, etc. We focus on tasks that target at proteins. Then we extract the task relation by aggregating the protein-protein interaction (PPI, like String dataset) accordingly.
 
 <p align="center">
-  <img src="fig/dataset_preprocess.png" /> 
+  <image src="fig/dataset_preprocess.png" height="60px"/> 
 </p>
 
 For the detailed pre-processing steps, please check [this instruction](https://github.com/chao1224/SGNN-EBM/tree/init/datasets/README.md).
@@ -151,4 +151,15 @@ python main_SGNN_EBM.py \
 --use_PPI \
 --seed="$seed"
 #--output_model_file="$mtl_method"/"$dataset"
+```
+
+## Cite us
+
+```
+@inproceedings{liu2022multi,
+    title={Structured Multi-task Learning for Molecular Property Prediction},
+    author={Liu, Shengchao and Qu, Meng and Zhang, Zuobai and Cai, Huiyu and Tang, Jian},
+    booktitle={AISTATS},
+    year={2022}
+}
 ```
