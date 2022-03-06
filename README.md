@@ -63,7 +63,7 @@ In this work, we propose a novel dataset with explicit task relation.
 Basically it is a molecule property task dataset, where the *task* refers to a binary classification problem on a ChEMBL assay. Each task measures certain biological effects of molecules, *e.g.*, toxicity, inhibition or activation of proteins or whole cellular processes, etc. We focus on tasks that target at proteins. Then we extract the task relation by aggregating the protein-protein interaction (PPI, like String dataset) accordingly.
 
 <p align="center">
-  <img src="fig/dataset_preprocess.png" max-width=80% /> 
+  <img src="fig/dataset_preprocess.png" max-width=70% /> 
 </p>
 
 For the detailed pre-processing steps, please check [this instruction](https://github.com/chao1224/SGNN-EBM/tree/init/datasets/README.md).
@@ -86,16 +86,20 @@ bash eval_SGNN_EBM.sh > eval_SGNN_EBM.out
 
 ### Training from scratch
 
-Here we provide the script for training the SGNN-EBM (adaptive with pre-trained SGNN) on ChEMBL-10 dataset.
-```
+Here we provide the script for training the SGNN-EBM (adaptive with pre-trained SGNN) on:
+
+- ChEMBL-10 dataset```
 cd src
 
 energy_function=energy_function_GNN_CE_1st_order
 inference_function=GNN_1st_order_inference
 gnn_energy_model=GNN_Energy_Model_1st_Order_01
 mtl_method=gnn
+
 dataset=chembl_dense_10
 seed=0
+output_model_dir=../checkpoint/"$mtl_method"/"$dataset"/"$seed"
+mkdir -p $output_model_dir
 
 python main_SGNN_EBM.py \
 --mtl_method=structured_prediction \
@@ -112,8 +116,70 @@ python main_SGNN_EBM.py \
 --use_GCN_for_KG \
 --kg_dropout_ratio=0.2 \
 --batch=32 \
---seed="$seed"
-# --output_model_file="$mtl_method"/"$dataset"
+--seed="$seed" \
+--epochs=200 \
+--output_model_file="$output_model_dir"/model
+```
+
+- ChEMBL-50 dataset```
+cd src
+
+energy_function=energy_function_GNN_CE_1st_order
+inference_function=GNN_1st_order_inference
+gnn_energy_model=GNN_Energy_Model_1st_Order_01
+mtl_method=gnn
+
+dataset=chembl_dense_50
+seed=0
+output_model_dir=../checkpoint/"$mtl_method"/"$dataset"/"$seed"
+mkdir -p $output_model_dir
+
+python main_SGNN_EBM.py \
+--mtl_method=structured_prediction \
+--dataset="$dataset" \
+--energy_function="$energy_function" --inference_function="$inference_function" --gnn_energy_model="$gnn_energy_model" \
+--task_emb_dim=100 \
+--PPI_threshold=0.1 \
+--ebm_GNN_dim=100 \
+--ebm_GNN_layer_num=3 \
+--ebm_GNN_use_concat \
+--filling_missing_data_mode=no_filling \
+--lr_scale=1 \
+--use_batch_norm \
+--use_GCN_for_KG \
+--kg_dropout_ratio=0.2 \
+--batch=32 \
+--seed="$seed" \
+--epochs=200 \
+--output_model_file="$output_model_dir"/model
+```
+
+- ChEMBL-100 dataset```
+dataset=chembl_dense_100
+seed=0
+output_model_dir=../checkpoint/"$mtl_method"/"$dataset"/"$seed"
+mkdir -p $output_model_dir
+
+python main_SGNN_EBM.py \
+--mtl_method=structured_prediction \
+--dataset="$dataset" \
+--energy_function="$energy_function" --inference_function="$inference_function" --gnn_energy_model="$gnn_energy_model" \
+--task_emb_dim=100 \
+--PPI_threshold=0.1 \
+--ebm_GNN_dim=100 \
+--ebm_GNN_layer_num=3 \
+--ebm_GNN_use_concat \
+--filling_missing_data_mode=no_filling \
+--lr_scale=1 \
+--use_batch_norm \
+--use_GCN_for_KG \
+--kg_dropout_ratio=0.2 \
+--batch=32 \
+--seed="$seed" \
+--epochs=200 \
+--output_model_file="$output_model_dir"/model
+
+--MTL_pretrained_epochs=3 --PPI_pretrained_epochs=3  --pretrain_epochs=3 --epochs=3
 ```
 
 Next we provide the script for training the SGNN-EBM (adaptive with pre-trained SGNN) on ChEMBL-10 dataset.
@@ -128,6 +194,9 @@ gnn_energy_model=GNN_Energy_Model_2nd_Order_01
 mtl_method=ebm
 dataset=chembl_dense_10
 seed=0
+
+output_model_dir=../checkpoint/"$mtl_method"/"$dataset"/"$seed"
+mkdir -p output_model_dir
 
 python main_SGNN_EBM.py \
 --mtl_method=structured_prediction \
@@ -150,11 +219,12 @@ python main_SGNN_EBM.py \
 --batch_size=32 \
 --structured_lambda=0.1 \
 --use_PPI \
---seed="$seed"
-#--output_model_file="$mtl_method"/"$dataset"
+--seed="$seed" \
+--epochs=200 \
+--output_model_file="$output_model_dir"/model
 ```
 
-## Cite us
+## Cite Us
 
 Feel free to cite this work if you find it useful to you!
 

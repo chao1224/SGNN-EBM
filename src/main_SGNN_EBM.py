@@ -325,7 +325,7 @@ def extract_prior_distribution_from_pretrained_model(args):
         return y_pred_list, id_list
 
     filling_mode = args.filling_missing_data_mode
-    dir_ = '../best/{}/{}/{}'.format(filling_mode, args.dataset, args.seed)
+    dir_ = '../checkpoint/{}/{}/{}'.format(filling_mode, args.dataset, args.seed)
     y_pred_train, id_train = load(dir_, 'train')
     y_pred_valid, id_valid = load(dir_, 'valid')
     y_pred_test, id_test = load(dir_, 'test')
