@@ -15,8 +15,10 @@ This repository provides the source code for the AISTATS'22 paper **Structured M
 2. We construct a domain-specific multi-task dataset with relation graph for drug discovery;
 3. We propose **state graph neural network-energy based model (SGNN-EBM)** for task structured modeling in both the latent and output space.
 
+In the future, we will merge it into the [TorchDrug](https://github.com/DeepGraphLearning/torchdrug) package.
+
 <p align="center">
-  <image src="fig/pipeline.png" height="60px"/> 
+  <img src="fig/pipeline.png" max-width=90% /> 
 </p>
 
 
@@ -32,7 +34,6 @@ For implementation, this repository also provides the following multi-task learn
 
 ## Environments
 Below is environment built with [pytorch-geometric](https://github.com/pyg-team/pytorch_geometric).
-In the future, we will merge it into the [TorchDrug](https://github.com/DeepGraphLearning/torchdrug) package.
 
 ```
 conda create -n SGNN_EBM python=3.7
@@ -62,7 +63,7 @@ In this work, we propose a novel dataset with explicit task relation.
 Basically it is a molecule property task dataset, where the *task* refers to a binary classification problem on a ChEMBL assay. Each task measures certain biological effects of molecules, *e.g.*, toxicity, inhibition or activation of proteins or whole cellular processes, etc. We focus on tasks that target at proteins. Then we extract the task relation by aggregating the protein-protein interaction (PPI, like String dataset) accordingly.
 
 <p align="center">
-  <image src="fig/dataset_preprocess.png" height="60px"/> 
+  <img src="fig/dataset_preprocess.png" max-width=80% /> 
 </p>
 
 For the detailed pre-processing steps, please check [this instruction](https://github.com/chao1224/SGNN-EBM/tree/init/datasets/README.md).
@@ -154,6 +155,8 @@ python main_SGNN_EBM.py \
 ```
 
 ## Cite us
+
+Feel free to cite this work if you find it useful to you!
 
 ```
 @inproceedings{liu2022multi,
