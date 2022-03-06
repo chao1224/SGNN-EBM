@@ -19,6 +19,7 @@ This repository provides the source code for the AISTATS'22 paper **Structured M
   <img src="fig/pipeline.png" /> 
 </p>
 
+
 ## Baselines
 For implementation, this repository also provides the following multi-task learning baselines:
 - standard single-task learning (STL)
@@ -57,7 +58,15 @@ pip install torch-geometric==1.6.*
 
 ## Dataset
 
-Check [this instruction](https://github.com/chao1224/SGNN-EBM_dev/blob/main/datasets/README.md).
+In this work, we propose a novel dataset with explicit task relation.
+Basically it is a molecule property task dataset, where the *task* refers to a binary classification problem on a ChEMBL assay. Each task measures certain biological effects of molecules, *e.g.*, toxicity, inhibition or activation of proteins or whole cellular processes, etc. We focus on tasks that target at proteins. Then we extract the task relation by aggregating the protein-protein interaction (PPI, like String dataset) accordingly.
 
-## Multi-Task Learning
+<p align="center">
+  <img src="fig/dataset_preprocess.png" /> 
+</p>
+
+For the detailed pre-processing steps, please check [this instruction](https://github.com/chao1224/SGNN-EBM/tree/init/datasets/README.md).
+
+
+## Structured Multi-Task Learning: SGNN-EBM
 
