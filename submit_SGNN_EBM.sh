@@ -21,7 +21,7 @@ for seed in "${seed_list[@]}"; do
 
         sbatch --gres=gpu:v100l:1 -c 6 --mem=30G -t "$time":59:00 --account=rrg-bengioy-ad --qos=high --job-name=EBM_10 \
         --output="$output_file" \
-        ./run_structured_learning.sh \
+        ./run_SGNN_EBM.sh \
         --mtl_method=structured_prediction \
         --dataset="$dataset" \
         --energy_function="$energy_function" --inference_function="$inference_function" --gnn_energy_model="$gnn_energy_model" \
@@ -61,7 +61,7 @@ for seed in "${seed_list[@]}"; do
 
         sbatch --gres=gpu:v100l:1 -c 6 --mem=30G -t "$time":59:00 --account=rrg-bengioy-ad --qos=high --job-name=EBM_50 \
         --output="$output_file" \
-        ./run_structured_learning.sh \
+        ./run_SGNN_EBM.sh \
         --mtl_method=structured_prediction \
         --dataset="$dataset" \
         --energy_function="$energy_function" --inference_function="$inference_function" --gnn_energy_model="$gnn_energy_model" \
@@ -98,7 +98,7 @@ for seed in "${seed_list[@]}"; do
 
         sbatch --gres=gpu:v100l:1 -c 6 --mem=30G -t "$time":59:00 --account=rrg-bengioy-ad --qos=high --job-name=EBM_100 \
         --output="$output_file" \
-        ./run_structured_learning.sh \
+        ./run_SGNN_EBM.sh \
         --mtl_method=structured_prediction \
         --dataset="$dataset" \
         --energy_function="$energy_function" --inference_function="$inference_function" --gnn_energy_model="$gnn_energy_model" \
