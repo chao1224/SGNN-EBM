@@ -88,7 +88,8 @@ bash eval_SGNN_EBM.sh > eval_SGNN_EBM.out
 
 Here we provide the script for training the SGNN-EBM (adaptive with pre-trained SGNN) on:
 
-- ChEMBL-10 dataset```
+- ChEMBL-10 dataset
+```
 cd src
 
 energy_function=energy_function_GNN_CE_1st_order
@@ -115,13 +116,14 @@ python main_SGNN_EBM.py \
 --use_batch_norm \
 --use_GCN_for_KG \
 --kg_dropout_ratio=0.2 \
---batch=32 \
+--batch_size=32 \
 --seed="$seed" \
 --epochs=200 \
 --output_model_file="$output_model_dir"/model
 ```
 
-- ChEMBL-50 dataset```
+- ChEMBL-50 dataset
+```
 cd src
 
 energy_function=energy_function_GNN_CE_1st_order
@@ -138,25 +140,25 @@ python main_SGNN_EBM.py \
 --mtl_method=structured_prediction \
 --dataset="$dataset" \
 --energy_function="$energy_function" --inference_function="$inference_function" --gnn_energy_model="$gnn_energy_model" \
---task_emb_dim=100 \
---PPI_threshold=0.1 \
+--task_emb_dim=50 \
+--PPI_threshold=0.9 \
 --ebm_GNN_dim=100 \
 --ebm_GNN_layer_num=3 \
 --ebm_GNN_use_concat \
 --filling_missing_data_mode=no_filling \
 --lr_scale=1 \
---use_batch_norm \
+--no_batch_norm \
 --use_GCN_for_KG \
 --kg_dropout_ratio=0.2 \
---batch=32 \
 --seed="$seed" \
---epochs=200 \
+--epochs=500 \
 --output_model_file="$output_model_dir"/model
 ```
 
-- ChEMBL-100 dataset```
+- ChEMBL-100 dataset
+```
 dataset=chembl_dense_100
-seed=0
+seed=12
 output_model_dir=../checkpoint/"$mtl_method"/"$dataset"/"$seed"
 mkdir -p $output_model_dir
 
@@ -164,25 +166,22 @@ python main_SGNN_EBM.py \
 --mtl_method=structured_prediction \
 --dataset="$dataset" \
 --energy_function="$energy_function" --inference_function="$inference_function" --gnn_energy_model="$gnn_energy_model" \
---task_emb_dim=100 \
+--task_emb_dim=50 \
 --PPI_threshold=0.1 \
 --ebm_GNN_dim=100 \
---ebm_GNN_layer_num=3 \
+--ebm_GNN_layer_num=5 \
 --ebm_GNN_use_concat \
 --filling_missing_data_mode=no_filling \
 --lr_scale=1 \
 --use_batch_norm \
 --use_GCN_for_KG \
 --kg_dropout_ratio=0.2 \
---batch=32 \
 --seed="$seed" \
---epochs=200 \
+--epochs=500 \
 --output_model_file="$output_model_dir"/model
-
---MTL_pretrained_epochs=3 --PPI_pretrained_epochs=3  --pretrain_epochs=3 --epochs=3
 ```
 
-Next we provide the script for training the SGNN-EBM (adaptive with pre-trained SGNN) on ChEMBL-10 dataset.
+Next we provide the example script for training the SGNN-EBM (adaptive with pre-trained SGNN) on ChEMBL-10 dataset.
 Note that the pre-trained SGNN models is required (either using last script or from the pre-trained weights).
 
 ```
@@ -192,9 +191,9 @@ energy_function=energy_function_GNN_EBM_NCE
 inference_function=GNN_EBM_GS_inference
 gnn_energy_model=GNN_Energy_Model_2nd_Order_01
 mtl_method=ebm
+
 dataset=chembl_dense_10
 seed=0
-
 output_model_dir=../checkpoint/"$mtl_method"/"$dataset"/"$seed"
 mkdir -p output_model_dir
 
