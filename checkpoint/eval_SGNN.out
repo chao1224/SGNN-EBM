@@ -1,0 +1,513 @@
+382
+arguments	 Namespace(GS_inference='last', GS_iteration=2, GS_learning='last', Gibbs_init=False, JK='last', MFVI_iteration=2, MTL_pretrained_epochs=100, NCE_mode='uniform', PPI_pretrained_epochs=100, PPI_threshold=0.1, alpha=0.1, amortized_logits_transform_to_confidence=True, batch_norm=True, batch_size=32, dataset='chembl_dense_10', decay=0, device=0, dropout_ratio=0.2, dwa_T=2.0, ebm_GNN_dim=100, ebm_GNN_layer_num=3, ebm_GNN_use_concat=True, ebm_as_tilting=False, emb_dim=300, energy_CD_loss='ce', energy_function='energy_function_GNN_CE_1st_order', epochs=100, eval_every_n_epochs=5, filling_missing_data_fine_tuned_epoch=1000000, filling_missing_data_mode='no_filling', gnn_energy_model='GNN_Energy_Model_1st_Order_01', gnn_type='gin', grad_GNN_lambda=0.1, grad_GNN_layer=1, grad_KG_lr=0.05, grad_KG_normalize_method='sum', grad_KG_steps=10, grad_KG_weights_display=False, graph_pooling='mean', inference_function='GNN_1st_order_inference', input_model_file='', input_y_score_file='', kg_dropout_ratio=0.2, lr=0.001, lr_decay=0.002, lr_scale=1.0, mtl_method='structured_prediction', neg_sample_exponent=0.75, neg_sample_size=5, num_layer=5, num_tasks=382, num_workers=8, output_model_file='gnn/chembl_dense_10', output_y_score_file='', pretrain_epochs=100, pretrain_lr=0.001, second_order_lr_weight=0.001, seed=0, softmax_energy=False, split_method='random_filtered_split', structured_lambda=1.0, task_batch_id=0, task_batch_size=16, task_emb_dim=100, task_sim_method='cosine_sim', use_GCN_for_KG=True, use_PPI=False, use_PPI_every_N_step=100)
+root	 ../datasets/chembl_dense_10
+Dataset: chembl_dense_10
+Data: Data(edge_attr=[722442, 2], edge_index=[2, 722442], id=[13004], x=[330370, 2], y=[4967528])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 0.
+train: 10404	valid: 1300	test: 1300
+first train indices	 [8706, 10243, 1029, 6662, 4615, 2054, 11788, 16, 11288, 28] [1598, 3415, 12998, 1093, 8678, 5714, 880, 9072, 12240, 10366]
+first valid indices	 [8192, 11266, 12803, 1538, 7688, 10764, 15, 5652, 12822, 24] [7597, 10033, 4991, 2046, 5665, 2847, 12447, 326, 7513, 11169]
+first test indices	 [10754, 1028, 10766, 526, 9233, 1052, 8735, 10272, 6182, 11302] [7684, 7571, 606, 8869, 7244, 2994, 11940, 3327, 1926, 12357]
+num task: 382	num edge: 3571
+len of PPI dataset: 7142
+Loading from gnn/chembl_dense_10 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=382 tasks, M=7142 task edges.
+filename	 gnn/chembl_dense_10/0/train
+(10404, 382) 	 (10404, 382) 	 (10404,)
+Invalid task count:	 0
+train	ROC	0.9822202296559908
+filename	 gnn/chembl_dense_10/0/valid
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+valid	ROC	0.7715320735767701
+filename	 gnn/chembl_dense_10/0/test
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+test	ROC	0.7796832962513736
+
+Invalid task count:	 0
+recorded:  0.7796832962513736
+
+root	 ../datasets/chembl_dense_10
+Dataset: chembl_dense_10
+Data: Data(edge_attr=[722442, 2], edge_index=[2, 722442], id=[13004], x=[330370, 2], y=[4967528])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 1.
+train: 10404	valid: 1300	test: 1300
+first train indices	 [11776, 10762, 524, 5133, 10769, 10258, 11284, 2074, 9755, 8220] [3329, 3701, 3087, 5375, 12544, 11190, 10201, 1626, 6318, 3245]
+first valid indices	 [2562, 1033, 525, 15, 3600, 12305, 10780, 4639, 4128, 3105] [12412, 467, 4714, 6654, 6061, 12226, 1865, 10433, 10841, 11480]
+first test indices	 [4100, 7173, 4104, 1528, 24, 1051, 11297, 7717, 12326, 1576] [5741, 7436, 2990, 616, 7252, 8571, 3035, 7339, 12363, 8694]
+num task: 382	num edge: 3571
+len of PPI dataset: 7142
+Loading from gnn/chembl_dense_10 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=382 tasks, M=7142 task edges.
+filename	 gnn/chembl_dense_10/1/train
+(10404, 382) 	 (10404, 382) 	 (10404,)
+Invalid task count:	 0
+train	ROC	0.9828071697246854
+filename	 gnn/chembl_dense_10/1/valid
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+valid	ROC	0.7665076602568538
+filename	 gnn/chembl_dense_10/1/test
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+test	ROC	0.7950043502219915
+
+Invalid task count:	 0
+recorded:  0.7950043502219915
+
+root	 ../datasets/chembl_dense_10
+Dataset: chembl_dense_10
+Data: Data(edge_attr=[722442, 2], edge_index=[2, 722442], id=[13004], x=[330370, 2], y=[4967528])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 2.
+train: 10404	valid: 1300	test: 1300
+first train indices	 [12803, 7688, 11786, 2064, 1041, 10773, 1045, 534, 24, 5657] [6541, 11423, 9428, 1198, 9281, 899, 5081, 2990, 11598, 6573]
+first valid indices	 [2050, 1035, 15, 11792, 1561, 538, 4635, 9242, 11299, 4133] [2135, 6495, 12948, 3446, 1934, 10551, 3918, 8336, 8393, 2018]
+first test indices	 [7683, 7173, 3590, 519, 10772, 6680, 539, 8735, 9760, 12323] [10715, 7159, 5115, 7786, 12260, 3543, 1488, 1661, 4605, 6459]
+num task: 382	num edge: 3571
+len of PPI dataset: 7142
+Loading from gnn/chembl_dense_10 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=382 tasks, M=7142 task edges.
+filename	 gnn/chembl_dense_10/2/train
+(10404, 382) 	 (10404, 382) 	 (10404,)
+Invalid task count:	 0
+train	ROC	0.9714819154572464
+filename	 gnn/chembl_dense_10/2/valid
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+valid	ROC	0.7706604562640761
+filename	 gnn/chembl_dense_10/2/test
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+test	ROC	0.7706147003366304
+
+Invalid task count:	 0
+recorded:  0.7706161388086763
+
+root	 ../datasets/chembl_dense_10
+Dataset: chembl_dense_10
+Data: Data(edge_attr=[722442, 2], edge_index=[2, 722442], id=[13004], x=[330370, 2], y=[4967528])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 3.
+train: 10404	valid: 1300	test: 1300
+first train indices	 [2048, 6658, 1538, 12296, 3090, 8220, 10780, 7200, 2592, 9250] [5196, 12559, 8409, 4750, 8890, 11407, 5494, 6098, 9121, 9625]
+first valid indices	 [12805, 7688, 1036, 9233, 6165, 10263, 24, 2074, 9244, 543] [3123, 5087, 8244, 7189, 2902, 137, 7969, 70, 1716, 8375]
+first test indices	 [4100, 8197, 1029, 9222, 3590, 8711, 2054, 16, 12817, 6161] [9619, 11283, 9967, 2768, 4128, 2366, 7561, 6475, 1260, 5395]
+num task: 382	num edge: 3571
+len of PPI dataset: 7142
+Loading from gnn/chembl_dense_10 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=382 tasks, M=7142 task edges.
+filename	 gnn/chembl_dense_10/3/train
+(10404, 382) 	 (10404, 382) 	 (10404,)
+Invalid task count:	 0
+train	ROC	0.983966219951429
+filename	 gnn/chembl_dense_10/3/valid
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+valid	ROC	0.7878046780751411
+filename	 gnn/chembl_dense_10/3/test
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+test	ROC	0.7784545870763167
+
+Invalid task count:	 0
+recorded:  0.7784546765737883
+
+root	 ../datasets/chembl_dense_10
+Dataset: chembl_dense_10
+Data: Data(edge_attr=[722442, 2], edge_index=[2, 722442], id=[13004], x=[330370, 2], y=[4967528])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 4.
+train: 10404	valid: 1300	test: 1300
+first train indices	 [1537, 12803, 7687, 9, 3602, 539, 28, 3101, 1565, 9250] [423, 6198, 2994, 7129, 12760, 1273, 1541, 7131, 9104, 4700]
+first valid indices	 [4098, 518, 524, 3084, 2060, 7183, 2064, 11797, 7191, 12312] [9708, 2179, 10277, 1592, 6454, 8622, 6431, 486, 10710, 930]
+first test indices	 [4097, 516, 9223, 12296, 7178, 6155, 2572, 9230, 12817, 1041] [2051, 6047, 4562, 4366, 2853, 1084, 12781, 6989, 12942, 663]
+num task: 382	num edge: 3571
+len of PPI dataset: 7142
+Loading from gnn/chembl_dense_10 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=382 tasks, M=7142 task edges.
+filename	 gnn/chembl_dense_10/4/train
+(10404, 382) 	 (10404, 382) 	 (10404,)
+Invalid task count:	 0
+train	ROC	0.9709933029646496
+filename	 gnn/chembl_dense_10/4/valid
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+valid	ROC	0.7741945018012306
+filename	 gnn/chembl_dense_10/4/test
+(1300, 382) 	 (1300, 382) 	 (1300,)
+Invalid task count:	 0
+test	ROC	0.7711398420810577
+
+Invalid task count:	 0
+recorded:  0.7711335739676907
+
+========== Summary ==========
+Train ROC:	0.9782937675508002 -/+ 0.0057907293530646215
+Valid ROC:	0.7741398739948144 -/+ 0.007264812620545552
+Test ROC:	0.7789793551934738 -/+ 0.008820394514619578
+
+
+
+
+
+152
+arguments	 Namespace(GS_inference='last', GS_iteration=2, GS_learning='last', Gibbs_init=False, JK='last', MFVI_iteration=2, MTL_pretrained_epochs=100, NCE_mode='uniform', PPI_pretrained_epochs=100, PPI_threshold=0.9, alpha=0.1, amortized_logits_transform_to_confidence=True, batch_norm=False, batch_size=128, dataset='chembl_dense_50', decay=0, device=0, dropout_ratio=0.2, dwa_T=2.0, ebm_GNN_dim=100, ebm_GNN_layer_num=3, ebm_GNN_use_concat=True, ebm_as_tilting=False, emb_dim=300, energy_CD_loss='ce', energy_function='energy_function_GNN_CE_1st_order', epochs=100, eval_every_n_epochs=5, filling_missing_data_fine_tuned_epoch=1000000, filling_missing_data_mode='no_filling', gnn_energy_model='GNN_Energy_Model_1st_Order_01', gnn_type='gin', grad_GNN_lambda=0.1, grad_GNN_layer=1, grad_KG_lr=0.05, grad_KG_normalize_method='sum', grad_KG_steps=10, grad_KG_weights_display=False, graph_pooling='mean', inference_function='GNN_1st_order_inference', input_model_file='', input_y_score_file='', kg_dropout_ratio=0.2, lr=0.001, lr_decay=0.002, lr_scale=1.0, mtl_method='structured_prediction', neg_sample_exponent=0.75, neg_sample_size=5, num_layer=5, num_tasks=152, num_workers=8, output_model_file='gnn/chembl_dense_50', output_y_score_file='', pretrain_epochs=100, pretrain_lr=0.001, second_order_lr_weight=0.001, seed=0, softmax_energy=False, split_method='random_filtered_split', structured_lambda=1.0, task_batch_id=0, task_batch_size=16, task_emb_dim=50, task_sim_method='cosine_sim', use_GCN_for_KG=True, use_PPI=False, use_PPI_every_N_step=100)
+root	 ../datasets/chembl_dense_50
+Dataset: chembl_dense_50
+Data: Data(edge_attr=[55226, 2], edge_index=[2, 55226], id=[932], x=[25002, 2], y=[141664])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 0.
+train: 746	valid: 93	test: 93
+first train indices	 [290, 546, 484, 422, 103, 106, 332, 46, 624, 116] [452, 491, 460, 285, 146, 923, 676, 140, 72, 582]
+first valid indices	 [576, 66, 859, 891, 389, 902, 447, 314, 845, 464] [395, 633, 53, 35, 234, 808, 875, 916, 400, 45]
+first test indices	 [418, 611, 898, 100, 11, 337, 245, 150, 826, 830] [786, 584, 358, 41, 428, 868, 181, 886, 264, 474]
+num task: 152	num edge: 16
+len of PPI dataset: 32
+Loading from gnn/chembl_dense_50 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=152 tasks, M=32 task edges.
+filename	 gnn/chembl_dense_50/0/train
+(746, 152) 	 (746, 152) 	 (746,)
+Invalid task count:	 0
+train	ROC	0.9686463182462466
+filename	 gnn/chembl_dense_50/0/valid
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+valid	ROC	0.8008528604105556
+filename	 gnn/chembl_dense_50/0/test
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+test	ROC	0.8102301910012691
+
+Invalid task count:	 0
+recorded:  0.8102301910012691
+
+root	 ../datasets/chembl_dense_50
+Dataset: chembl_dense_50
+Data: Data(edge_attr=[55226, 2], edge_index=[2, 55226], id=[932], x=[25002, 2], y=[141664])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 1.
+train: 746	valid: 93	test: 93
+first train indices	 [161, 611, 740, 198, 38, 396, 590, 335, 627, 919] [856, 791, 61, 119, 281, 391, 775, 538, 249, 252]
+first valid indices	 [384, 640, 389, 422, 326, 487, 166, 747, 783, 47] [245, 256, 754, 218, 843, 804, 463, 506, 147, 141]
+first test indices	 [545, 929, 865, 891, 296, 456, 683, 496, 212, 181] [330, 722, 70, 292, 182, 909, 705, 520, 413, 832]
+num task: 152	num edge: 16
+len of PPI dataset: 32
+Loading from gnn/chembl_dense_50 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=152 tasks, M=32 task edges.
+filename	 gnn/chembl_dense_50/1/train
+(746, 152) 	 (746, 152) 	 (746,)
+Invalid task count:	 0
+train	ROC	0.998388649557251
+filename	 gnn/chembl_dense_50/1/valid
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+valid	ROC	0.804743603881749
+filename	 gnn/chembl_dense_50/1/test
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+test	ROC	0.7949327569123049
+
+Invalid task count:	 0
+recorded:  0.7949327569123049
+
+root	 ../datasets/chembl_dense_50
+Dataset: chembl_dense_50
+Data: Data(edge_attr=[55226, 2], edge_index=[2, 55226], id=[932], x=[25002, 2], y=[141664])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 2.
+train: 746	valid: 93	test: 93
+first train indices	 [704, 483, 773, 9, 522, 332, 493, 855, 15, 278] [794, 807, 152, 263, 510, 597, 68, 288, 913, 890]
+first valid indices	 [407, 928, 386, 676, 631, 649, 111, 403, 436, 23] [791, 372, 412, 209, 570, 578, 293, 132, 261, 588]
+first test indices	 [32, 803, 931, 42, 555, 618, 878, 207, 720, 564] [143, 615, 762, 623, 120, 194, 899, 530, 711, 347]
+num task: 152	num edge: 16
+len of PPI dataset: 32
+Loading from gnn/chembl_dense_50 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=152 tasks, M=32 task edges.
+filename	 gnn/chembl_dense_50/2/train
+(746, 152) 	 (746, 152) 	 (746,)
+Invalid task count:	 0
+train	ROC	0.9977667984093848
+filename	 gnn/chembl_dense_50/2/valid
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+valid	ROC	0.7819436039166977
+filename	 gnn/chembl_dense_50/2/test
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+test	ROC	0.7987365658704618
+
+Invalid task count:	 0
+recorded:  0.7987365658704618
+
+root	 ../datasets/chembl_dense_50
+Dataset: chembl_dense_50
+Data: Data(edge_attr=[55226, 2], edge_index=[2, 55226], id=[932], x=[25002, 2], y=[141664])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 3.
+train: 746	valid: 93	test: 93
+first train indices	 [736, 481, 801, 805, 906, 524, 702, 719, 17, 498] [456, 238, 387, 663, 677, 760, 242, 284, 824, 333]
+first valid indices	 [741, 902, 710, 649, 155, 46, 174, 272, 721, 14] [672, 161, 382, 5, 577, 138, 195, 487, 645, 513]
+first test indices	 [899, 391, 250, 523, 108, 78, 751, 529, 113, 691] [472, 27, 916, 200, 648, 1, 620, 68, 861, 269]
+num task: 152	num edge: 16
+len of PPI dataset: 32
+Loading from gnn/chembl_dense_50 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=152 tasks, M=32 task edges.
+filename	 gnn/chembl_dense_50/3/train
+(746, 152) 	 (746, 152) 	 (746,)
+Invalid task count:	 0
+train	ROC	0.9999468997842342
+filename	 gnn/chembl_dense_50/3/valid
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+valid	ROC	0.7947456530629945
+filename	 gnn/chembl_dense_50/3/test
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+test	ROC	0.7831290081415224
+
+Invalid task count:	 0
+recorded:  0.7831290081415224
+
+root	 ../datasets/chembl_dense_50
+Dataset: chembl_dense_50
+Data: Data(edge_attr=[55226, 2], edge_index=[2, 55226], id=[932], x=[25002, 2], y=[141664])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 4.
+train: 746	valid: 93	test: 93
+first train indices	 [928, 262, 134, 72, 9, 713, 392, 623, 433, 659] [140, 607, 528, 206, 676, 62, 641, 519, 568, 499]
+first valid indices	 [737, 162, 196, 486, 487, 808, 12, 847, 671, 724] [445, 725, 362, 665, 787, 469, 860, 467, 374, 396]
+first test indices	 [832, 576, 515, 101, 325, 71, 300, 46, 559, 624] [867, 251, 846, 38, 824, 263, 89, 74, 695, 200]
+num task: 152	num edge: 16
+len of PPI dataset: 32
+Loading from gnn/chembl_dense_50 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=152 tasks, M=32 task edges.
+filename	 gnn/chembl_dense_50/4/train
+(746, 152) 	 (746, 152) 	 (746,)
+Invalid task count:	 0
+train	ROC	0.990351611947284
+filename	 gnn/chembl_dense_50/4/valid
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+valid	ROC	0.82686296907918
+filename	 gnn/chembl_dense_50/4/test
+(93, 152) 	 (93, 152) 	 (93,)
+Invalid task count:	 0
+test	ROC	0.7964287511706196
+
+Invalid task count:	 0
+recorded:  0.7964287511706196
+
+========== Summary ==========
+Train ROC:	0.9910200555888802 -/+ 0.011666483640103517
+Valid ROC:	0.8018297380702354 -/+ 0.014708841903011867
+Test ROC:	0.7966914546192355 -/+ 0.00865542428814675
+
+
+
+
+
+132
+arguments	 Namespace(GS_inference='last', GS_iteration=2, GS_learning='last', Gibbs_init=False, JK='last', MFVI_iteration=2, MTL_pretrained_epochs=100, NCE_mode='uniform', PPI_pretrained_epochs=100, PPI_threshold=0.1, alpha=0.1, amortized_logits_transform_to_confidence=True, batch_norm=True, batch_size=128, dataset='chembl_dense_100', decay=0, device=0, dropout_ratio=0.2, dwa_T=2.0, ebm_GNN_dim=100, ebm_GNN_layer_num=5, ebm_GNN_use_concat=True, ebm_as_tilting=False, emb_dim=300, energy_CD_loss='ce', energy_function='energy_function_GNN_CE_1st_order', epochs=100, eval_every_n_epochs=5, filling_missing_data_fine_tuned_epoch=1000000, filling_missing_data_mode='no_filling', gnn_energy_model='GNN_Energy_Model_1st_Order_01', gnn_type='gin', grad_GNN_lambda=0.1, grad_GNN_layer=1, grad_KG_lr=0.05, grad_KG_normalize_method='sum', grad_KG_steps=10, grad_KG_weights_display=False, graph_pooling='mean', inference_function='GNN_1st_order_inference', input_model_file='', input_y_score_file='', kg_dropout_ratio=0.2, lr=0.001, lr_decay=0.002, lr_scale=1.0, mtl_method='structured_prediction', neg_sample_exponent=0.75, neg_sample_size=5, num_layer=5, num_tasks=132, num_workers=8, output_model_file='gnn/chembl_dense_100', output_y_score_file='', pretrain_epochs=100, pretrain_lr=0.001, second_order_lr_weight=0.001, seed=0, softmax_energy=False, split_method='random_filtered_split', structured_lambda=1.0, task_batch_id=0, task_batch_size=16, task_emb_dim=50, task_sim_method='cosine_sim', use_GCN_for_KG=True, use_PPI=False, use_PPI_every_N_step=100)
+root	 ../datasets/chembl_dense_100
+Dataset: chembl_dense_100
+Data: Data(edge_attr=[31128, 2], edge_index=[2, 31128], id=[518], x=[14076, 2], y=[68376])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 0.
+train: 416	valid: 51	test: 51
+first train indices	 [419, 483, 228, 198, 460, 239, 212, 469, 406, 28] [16, 22, 498, 193, 293, 128, 396, 98, 140, 347]
+first valid indices	 [192, 326, 360, 11, 335, 464, 468, 372, 407, 222] [63, 307, 68, 179, 172, 163, 245, 213, 255, 295]
+first test indices	 [449, 353, 292, 421, 197, 107, 303, 181, 215, 312] [151, 82, 267, 508, 131, 329, 465, 54, 87, 57]
+num task: 132	num edge: 604
+len of PPI dataset: 1208
+Loading from gnn/chembl_dense_100 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=132 tasks, M=1208 task edges.
+filename	 gnn/chembl_dense_100/0/train
+(416, 132) 	 (416, 132) 	 (416,)
+Invalid task count:	 0
+train	ROC	0.9448535661152404
+filename	 gnn/chembl_dense_100/0/valid
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+valid	ROC	0.8171638109906251
+filename	 gnn/chembl_dense_100/0/test
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+test	ROC	0.8037947132466708
+
+Invalid task count:	 0
+recorded:  0.8037947132466708
+
+root	 ../datasets/chembl_dense_100
+Dataset: chembl_dense_100
+Data: Data(edge_attr=[31128, 2], edge_index=[2, 31128], id=[518], x=[14076, 2], y=[68376])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 1.
+train: 416	valid: 51	test: 51
+first train indices	 [514, 419, 164, 388, 386, 19, 407, 285, 232, 303] [502, 176, 322, 99, 160, 120, 358, 278, 430, 53]
+first valid indices	 [480, 471, 510, 300, 140, 372, 341, 22, 150, 408] [371, 132, 439, 392, 498, 82, 242, 73, 83, 188]
+first test indices	 [350, 2, 292, 197, 39, 488, 338, 154, 414, 401] [472, 448, 51, 449, 269, 506, 181, 33, 246, 331]
+num task: 132	num edge: 604
+len of PPI dataset: 1208
+Loading from gnn/chembl_dense_100 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=132 tasks, M=1208 task edges.
+filename	 gnn/chembl_dense_100/1/train
+(416, 132) 	 (416, 132) 	 (416,)
+Invalid task count:	 0
+train	ROC	0.9942383035674246
+filename	 gnn/chembl_dense_100/1/valid
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+valid	ROC	0.8106319510853344
+filename	 gnn/chembl_dense_100/1/test
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+test	ROC	0.8060929697889471
+
+Invalid task count:	 0
+recorded:  0.8060929697889471
+
+root	 ../datasets/chembl_dense_100
+Dataset: chembl_dense_100
+Data: Data(edge_attr=[31128, 2], edge_index=[2, 31128], id=[518], x=[14076, 2], y=[68376])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 2.
+train: 416	valid: 51	test: 51
+first train indices	 [352, 449, 292, 230, 268, 242, 147, 340, 246, 488] [194, 307, 133, 26, 66, 513, 517, 501, 139, 162]
+first valid indices	 [192, 97, 421, 294, 415, 81, 212, 217, 250, 476] [105, 204, 59, 349, 12, 68, 109, 326, 291, 175]
+first test indices	 [132, 267, 365, 78, 14, 494, 470, 24, 121, 154] [353, 82, 156, 232, 245, 112, 251, 188, 339, 469]
+num task: 132	num edge: 604
+len of PPI dataset: 1208
+Loading from gnn/chembl_dense_100 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=132 tasks, M=1208 task edges.
+filename	 gnn/chembl_dense_100/2/train
+(416, 132) 	 (416, 132) 	 (416,)
+Invalid task count:	 0
+train	ROC	0.9594956953146789
+filename	 gnn/chembl_dense_100/2/valid
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+valid	ROC	0.7890222780383284
+filename	 gnn/chembl_dense_100/2/test
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+test	ROC	0.7995058246565957
+
+Invalid task count:	 0
+recorded:  0.7995058246565957
+
+root	 ../datasets/chembl_dense_100
+Dataset: chembl_dense_100
+Data: Data(edge_attr=[31128, 2], edge_index=[2, 31128], id=[518], x=[14076, 2], y=[68376])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 3.
+train: 416	valid: 51	test: 51
+first train indices	 [480, 417, 33, 421, 37, 487, 301, 16, 209, 210] [497, 346, 28, 72, 391, 446, 96, 390, 53, 440]
+first valid indices	 [229, 338, 276, 245, 472, 93, 149, 258, 170, 344] [503, 109, 57, 483, 305, 517, 309, 38, 253, 237]
+first test indices	 [485, 198, 267, 47, 176, 370, 443, 189, 179, 111] [67, 217, 448, 297, 219, 117, 314, 262, 11, 439]
+num task: 132	num edge: 604
+len of PPI dataset: 1208
+Loading from gnn/chembl_dense_100 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=132 tasks, M=1208 task edges.
+filename	 gnn/chembl_dense_100/3/train
+(416, 132) 	 (416, 132) 	 (416,)
+Invalid task count:	 0
+train	ROC	0.9957668953515632
+filename	 gnn/chembl_dense_100/3/valid
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+valid	ROC	0.8212319725388327
+filename	 gnn/chembl_dense_100/3/test
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+test	ROC	0.8096678557748109
+
+Invalid task count:	 0
+recorded:  0.8096678557748109
+
+root	 ../datasets/chembl_dense_100
+Dataset: chembl_dense_100
+Data: Data(edge_attr=[31128, 2], edge_index=[2, 31128], id=[518], x=[14076, 2], y=[68376])
+trial 0
+Done ============
+Being able to split 0.8-0.1-0.1 with seed 4.
+train: 416	valid: 51	test: 51
+first train indices	 [229, 359, 233, 47, 369, 276, 247, 472, 90, 380] [259, 453, 445, 183, 344, 271, 498, 488, 508, 5]
+first valid indices	 [0, 320, 292, 422, 198, 456, 106, 464, 305, 404] [338, 420, 315, 337, 158, 455, 379, 57, 250, 87]
+first test indices	 [419, 230, 41, 43, 396, 399, 370, 440, 475, 81] [258, 98, 1, 76, 139, 124, 51, 39, 504, 410]
+num task: 132	num edge: 604
+len of PPI dataset: 1208
+Loading from gnn/chembl_dense_100 ...
+
+dict_keys(['model', 'task_embedding_model', 'first_order_prediction_model', 'second_order_prediction_model', 'GNN_energy_model', 'kg_model', 'readout_model', 'task_relation_matching_model'])
+T=132 tasks, M=1208 task edges.
+filename	 gnn/chembl_dense_100/4/train
+(416, 132) 	 (416, 132) 	 (416,)
+Invalid task count:	 0
+train	ROC	0.969634050385997
+filename	 gnn/chembl_dense_100/4/valid
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+valid	ROC	0.8010365169905218
+filename	 gnn/chembl_dense_100/4/test
+(51, 132) 	 (51, 132) 	 (51,)
+Invalid task count:	 0
+test	ROC	0.7902679911404079
+
+Invalid task count:	 0
+recorded:  0.7902679911404079
+
+========== Summary ==========
+Train ROC:	0.9727977021469808 -/+ 0.01977427643445677
+Valid ROC:	0.8078173059287284 -/+ 0.011614343171400901
+Test ROC:	0.8018658709214865 -/+ 0.006671437611054897
+
+
+
+
+
