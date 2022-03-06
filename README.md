@@ -67,14 +67,14 @@ Basically it is a molecule property task dataset, where the *task* refers to a b
 </p>
 
 For the detailed pre-processing steps, please check [this instruction](https://github.com/chao1224/SGNN-EBM/tree/init/datasets/README.md).
-
+The pre-processed datasets can be downloaded [here](https://drive.google.com/drive/folders/185lM1FwtwL6eBqfhqcsD9Q3hOkp-vHEr?usp=sharing).
 
 ## Structured Multi-Task Learning: SGNN-EBM
 
 ### Evaluation on the pre-trained models
 
 We also provide the pre-trained model weights and evaluation scripts accordingly.
-First you can download the checkpoints [here]().
+First you can download the checkpoints [here](https://drive.google.com/drive/folders/185lM1FwtwL6eBqfhqcsD9Q3hOkp-vHEr?usp=sharing).
 All the optimal hyper-parameters are provided in the bash scripts.
 
 ```bash
@@ -86,14 +86,17 @@ bash eval_SGNN_EBM.sh > eval_SGNN_EBM.out
 
 ### Training from scratch
 
-Here we provide the script for training the SGNN-EBM (adaptive with pre-trained SGNN) on:
+Here we provide the script for training the SGNN and SGNN-EBM (adaptive with pre-trained SGNN).
+Note that the pre-trained SGNN models is required (either using last script or from the pre-trained weights).
 
 ```bash
 bash submit_SGNN.sh
 bash submit_SGNN_EBM.sh
 ```
 
-Note that the pre-trained SGNN models is required (either using last script or from the pre-trained weights).
+### Baselines
+
+We also provide the scripts for all six STL and MTL baselines under the `scripts` folder.
 
 ## Cite Us
 
