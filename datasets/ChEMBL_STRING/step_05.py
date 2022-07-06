@@ -10,7 +10,6 @@ def print_target_name(target_name):
     return
 
 
-### Thanks Zuobai for the discussion! :)
 if __name__ == '__main__':
     dataPathSave = '../chembl_raw/raw/'
 
@@ -28,9 +27,6 @@ if __name__ == '__main__':
     print('targetAnnInd\t', targetAnnInd)
     print('targetMat\t', targetMat)
     print('targetAnnInd\t', targetAnnInd)
-    # print('targetAnnInd')
-    # target_name = targetAnnInd.index.values
-    # print_target_name(target_name)
     print()
 
     f = open(dataPathSave + 'labelsWeakHard.pckl', 'rb')
@@ -39,6 +35,3 @@ if __name__ == '__main__':
     targetAnnIndWeak = pickle.load(f)
     f.close()
     print('targetAnnInd\t', targetAnnInd)
-    # print('targetAnnIndWeak')
-    # target_name = targetAnnIndWeak.index.values
-    # print_target_name(target_name)

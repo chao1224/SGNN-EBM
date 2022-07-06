@@ -58,8 +58,8 @@ def transform(input_dir, output_dir, n_proc):
 
     with Pool(n_proc) as p:
         filter_result = p.starmap(filter_mol, tqdm(enumerate(rdkitArr), total=len(rdkitArr)))
-    # filtered_mol_statistics = [elem for elem in filter_result if not isinstance(elem, tuple)]
-    # print(np.unique(filtered_mol_statistics, return_counts=True))
+    filtered_mol_statistics = [elem for elem in filter_result if not isinstance(elem, tuple)]
+    print("==", np.unique(filtered_mol_statistics, return_counts=True))
     filter_result = [elem for elem in filter_result if isinstance(elem, tuple)]
     valid_indices, molecule_list, smiles_list, scaffold_smiles_list = zip(*filter_result)
 
@@ -98,6 +98,7 @@ def filter_mol(i, mol):
     # if not AllChem.MolFromInchi(AllChem.MolToInchi(largest_mol)):
     #     return -5  # 11
     return (i, largest_mol, smiles, generate_scaffold(smiles))
+
 
 def split_rdkit_mol_obj(mol):
     """

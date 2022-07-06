@@ -82,7 +82,7 @@ def store_mapping_from_uniprot_to_string_id(uniprot_set):
     with Pool(args.n_proc) as p:
         string_id_set = p.map(query_stringid, tqdm(uniprot_set))
     num_errors = 0
-    with open('uniprot_without_strid.txt', 'w') as r, open('uniprot2string.tsv', 'w') as g:
+    with open('uniprot_without_stringid.txt', 'w') as r, open('uniprot2string.tsv', 'w') as g:
         for uniprot, string_id in zip(uniprot_set, string_id_set):
             if string_id:
                 g.write('{}\t{}\n'.format(uniprot, string_id))

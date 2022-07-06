@@ -37,8 +37,8 @@ python transform.py --input-dir chembl_raw/raw --output-dir chembl_full > transf
 Preprocess the raw dataset, and transform it into more friendly and organized formats.
 
 1. Discard the 22 ```None```s in the compound list.
-2. Filter out the 9 molecules with ≤ 2 non-H atoms. (Why? CH3OH is discarded, but NaBrO3 is retained.)
-3. Retain only the largest molecule in the SMILES string. E.g. if the compound is a organic chlorium salt, say CH3NH3+Cl-, we retain only the organic compound after removing HCL, in this case CH3NH2. (Examples include ```CCOc1ccc(OCCN(C)Cc2ccccc2)cc1.O=C(O)C(=O)O``` and ```COc1cc(CNc2ccc(C(C)C)cc2)cc(OC)c1OC.Cl```. Why?)
+2. Filter out the 9 molecules with ≤ 2 non-H atoms.
+3. Retain only the largest molecule in the SMILES string. E.g. if the compound is a organic chlorium salt, say CH3NH3+Cl-, we retain only the organic compound after removing HCL, in this case CH3NH2.
 4. Filter out molecules with molecular weight < 50 (929) or > 900 (9).
 
 #### Contents of the output files
@@ -59,10 +59,12 @@ python step_05.py --dataset chembl_raw
 cp filtered_task_score.tsv ../chembl_full/
 cd ..
 ```
-+ step 1 generates ```assay2target.tsv```, a 1310 x 6 tsv file storing the assay_id, target_id, target_name, organism and uniprot_list for the assays
-+ step 2 generates ```uniprot2string.tsv```, storing 2630 uniprot and its corresponding STRING ID. 40 uniprots without available STRING IDs are stored in ```uniprot_without_strid.txt```. This step also creates ```string_ppi_score.tsv```, which stores the STRING protein-protein interaction score for 12356 protein (represented as STRING ID) pairs.
++ step 1 generates ```assay2target.tsv```, a 1310 x 6 tsv file storing the assay_id, target_id, target_name, organism and uniprot_list for the assays.
+  + We are using this comand `https://www.ebi.ac.uk/chembl/api/data/assay` to get the assay information from ChEMBL. By default, this will use the latest ChEMBL version, which was ChEMBL-27 for this project. We also save a copy on the [google drive](https://drive.google.com/drive/folders/14DpCynww2NEroKV2W3g0F-tXQpV2-PhC?usp=sharing).
++ step 2 generates ```uniprot2string.tsv```, storing 2630 uniprot and its corresponding STRING ID. 40 uniprots without available STRING IDs are stored in ```uniprot_without_stringid.txt```. This step also creates ```string_ppi_score.tsv```, which stores the STRING protein-protein interaction score for 6178 protein (represented as STRING ID) pairs.
 + step 3 generates ```filtered_assay_score.tsv```, which stores 9172 non-zero scores for assay pairs (represented by CHEMBL ID). The assay score is defined as $\mathrm{score}\,(A_i, A_j) = \max \{ \mathrm{score}\,(p_i, p_j) | p_i\in A_i, p_j\in A_j \}$, where $A$ denotes assay and $p$ denotes protein.
 + step 4 generates ```filtered_task_score.tsv```, which is identical to ```filtered_assay_score.tsv``` except each assay is represented by an integer from 0 to 1310.
++ step 5 verifies the task/assay ordering.
 
 # Step 4: Filtering Based on ChEMBL-STRING
 Construct the `chembl_connected` dataset, which only contains tasks appearing in the KG.
